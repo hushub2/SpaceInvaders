@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 		transform.position = startPos;
 		UIManager.UpdateHealthBar(shipStats.currentHealth);
 		UIManager.UpdateLives(shipStats.currentLifes);
+		
 	}
 
 	void Update()
@@ -37,9 +38,9 @@ public class Player : MonoBehaviour
 		{
             transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
 		}
-		if (Input.GetKey(KeyCode.Space) && !isShooting)
+		if (!isShooting)
 		{
-            StartCoroutine(Shoot());
+			StartCoroutine(Shoot());
 		}
 #endif
 		dirx = Input.acceleration.x;
